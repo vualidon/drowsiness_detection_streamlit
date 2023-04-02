@@ -253,6 +253,8 @@ webrtc_streamer(
     key="example",
     video_frame_callback=callback,
     rtc_configuration={  # Add this line
-        "iceServers": [{"urls": ["stun:relay.metered.ca:80"]}]
+        "iceServers": [{"urls": ["turn:relay1.expressturn.com:3478"],
+                         "username":"ef4BWIICOST30PU5D8",
+                            "credentials": "oGlk0iIjiJyEqgEb"}]
     }
 )
