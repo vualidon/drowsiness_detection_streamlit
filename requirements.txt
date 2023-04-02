@@ -5,5 +5,5 @@ av
 mediapipe
 numpy
 scipy
-playsound
+playsound=1.2.2
 asyncio
