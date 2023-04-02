@@ -11,7 +11,7 @@ from playsound import playsound
 import random
 
 
-SOUNDS = ['./alert.mp3', './attention.mp3', './bark.wav', './wakeup.mp3']
+SOUNDS = ['alert.mp3', 'attention.mp3', 'bark.wav', 'wakeup.mp3']
 
 
 face_mesh = mp.solutions.face_mesh
