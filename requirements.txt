@@ -2,7 +2,6 @@ streamlit
 streamlit_webrtc
 opencv-python-headless
 av
-opencv-python
 mediapipe
 numpy
 scipy
