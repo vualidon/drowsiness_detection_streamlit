@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer
 import av
-import opencv-python-headless as cv
+import cv2 as cv
 import mediapipe as mp
 import numpy as np
 from scipy.spatial import distance as dis
