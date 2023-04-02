@@ -253,6 +253,6 @@ webrtc_streamer(
     key="example",
     video_frame_callback=callback,
     rtc_configuration={  # Add this line
-        "iceServers": [{"urls": ["stun:stun.xten.com"]}]
+        "iceServers": [{"urls": ["stun:relay.metered.ca:80"]}]
     }
 )
