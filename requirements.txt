@@ -8,4 +8,3 @@ scipy
 playsound==1.2.2
 asyncio
 inotify
-python3-gi
