@@ -253,6 +253,6 @@ webrtc_streamer(
     key="example",
     video_frame_callback=callback,
     rtc_configuration={  # Add this line
-        "iceServers": [{"urls": ["stun:stun1.l.google.com:19302"]}]
+        "iceServers": [{"urls": ["stun:stun:stun01.sipphone.com"]}]
     }
 )
