@@ -20,7 +20,7 @@ SOUNDS = ['./alert.mp3', './attention.mp3', './bark.wav', './wakeup.mp3']
 
 ##
 
-audio_handler = AudioFrameHandler(sound_file_path='./wakeup.mp3')
+audio_handler = AudioFrameHandler(sound_file_path='wakeup.mp3')
 
 lock = threading.Lock()  # For thread-safe access & to prevent race-condition.
 shared_state = {"play_alarm": False}
