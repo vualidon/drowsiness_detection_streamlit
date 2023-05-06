@@ -261,6 +261,8 @@ def callback(frame):
     with lock:
         if frame_count > min_frame or frame_count_2 > min_frame:
             shared_state["play_alarm"] = True
+        else:
+            shared_state["play_alarm"] = False
     return av.VideoFrame.from_ndarray(img,format='bgr24')
 
 ##
