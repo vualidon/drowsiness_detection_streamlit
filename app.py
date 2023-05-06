@@ -10,9 +10,21 @@ from main import draw_landmarks, euclidean_distance, get_EAR
 from playsound import playsound
 import random
 
+##
+from streamlit_webrtc import VideoHTMLAttributes
+from audio import AudioFrameHandler
+##
 
-SOUNDS = ['alert.mp3', 'attention.mp3', 'bark.wav', 'wakeup.mp3']
+SOUNDS = ['./alert.mp3', './attention.mp3', './bark.wav', './wakeup.mp3']
 
+
+##
+
+audio_handler = AudioFrameHandler(sound_file_path='./wakeup.mp3')
+
+lock = threading.Lock()  # For thread-safe access & to prevent race-condition.
+shared_state = {"play_alarm": False}
+##
 
 face_mesh = mp.solutions.face_mesh
 draw_utils = mp.solutions.drawing_utils
@@ -246,12 +258,24 @@ def callback(frame):
     global _continue
     img = frame.to_ndarray(format='bgr24')
     img,frame_count,frame_count_2,_continue = gen_frames(img,frame_count,frame_count_2,_continue)
-    
+    with lock:
+        if frame_count > min_frame or frame_count_2 > min_frame:
+            shared_state["play_alarm"] = True
     return av.VideoFrame.from_ndarray(img,format='bgr24')
+
+##
+def audio_frame_callback(frame: av.AudioFrame):
+    with lock:  # access the current “play_alarm” state
+        play_alarm = shared_state["play_alarm"]
+
+    new_frame: av.AudioFrame = audio_handler.process(frame, play_sound=play_alarm)
+    return new_frame
+##
 
 webrtc_streamer(
     key="example",
     video_frame_callback=callback,
+    audio_frame_callback=audio_frame_callback,
     rtc_configuration={  # Add this line
         "iceServers": [{"urls": ["turn:relay1.expressturn.com:3478"],"username":"ef4BWIICOST30PU5D8","credential": "oGlk0iIjiJyEqgEb"}]
     }

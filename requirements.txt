@@ -5,6 +5,6 @@ av
 mediapipe
 numpy
 scipy
-playsound==1.2.2
+playsound
 asyncio
-inotify
+pydub
