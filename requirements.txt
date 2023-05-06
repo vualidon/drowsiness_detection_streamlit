@@ -8,3 +8,4 @@ scipy
 playsound
 asyncio
 pydub
+os
