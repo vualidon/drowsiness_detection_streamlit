@@ -8,7 +8,7 @@ class AudioFrameHandler:
 
     def __init__(self, sound_file_path: str = ""):
 
-        self.custom_audio = AudioSegment.from_file(file=sound_file_path, format="wav")
+        self.custom_audio = AudioSegment.from_file(file=sound_file_path, format="mp3")
         self.custom_audio_len = len(self.custom_audio)
 
         self.ms_per_audio_segment: int = 20
