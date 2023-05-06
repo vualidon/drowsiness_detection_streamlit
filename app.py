@@ -13,7 +13,6 @@ import random
 ##
 from streamlit_webrtc import VideoHTMLAttributes
 from audio import AudioFrameHandler
-import os
 ##
 
 SOUNDS = ['./alert.mp3', './attention.mp3', './bark.wav', './wakeup.mp3']
